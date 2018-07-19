@@ -1,7 +1,7 @@
 ---
 - name: Updaty počítače
   hosts: "{{ seznam_stanic }}"
-  tasks:
+  tasks: 
    - name: Updatuje počítač
      win_updates: 
        category_names: "{{ kategorie_updatu }}"
