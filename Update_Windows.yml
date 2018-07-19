@@ -1,8 +1,8 @@
 ---
-- name: Updaty poèítaèe
+- name: Updaty poÄÃ­taÄe
   hosts: "{{ seznam_stanic }}"
-  tasks: 
-   - name: Updatuje poèítaè
+  tasks:
+   - name: Updatuje poÄÃ­taÄ
      win_updates: 
        category_names: "{{ kategorie_updatu }}"
        reboot: yes
