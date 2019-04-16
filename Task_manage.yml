@@ -6,6 +6,13 @@
     win_copy: 
      src: "{{ zdroj }}"
      dest: "{{ cil }}"
+     remote_src: yes
+    vars: 
+     ansible_become: yes
+     ansible_become_method: runas
+     ansible_become_user: "{{ superucet }}"
+     ansible_become_pass: "{{ superheslo }}"
+     ansible_become_flags: logon_type=new_credentials logon_flags=netcredentials_only
   
   - name: Založení tasku v task scheduleru
     win_scheduled_task: 
