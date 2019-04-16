@@ -2,7 +2,13 @@
 - name: Updaty počítače
   hosts: "{{ seznam_stanic }}"
   tasks: 
+   - name: Povolení updatu
+     win_command: sc config wuauserv start=auto
+        
    - name: Updatuje počítač
      win_updates: 
        #category_names: "{{ kategorie_updatu }}"
        reboot: yes
+   
+   - name: Opětovný zákaz updatu
+     win_command: sc config wuauserv start=stop
