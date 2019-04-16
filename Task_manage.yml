@@ -1,0 +1,21 @@
+---
+- name: Nastavení task scheduleru pro automatickou aktualizaci Windows
+  hosts: "{{ seznam_stanic }}"
+  tasks: 
+  - name: Kopírování PS skriptu pro update do počítače
+    win_copy: 
+     src: "{{ zdroj }}"
+     dest: "{{ cil }}"
+  
+  - name: Založení tasku v task scheduleru
+    win_scheduled_task: 
+     name: Update_windows
+     description: automatický update windows pomocí Ansible
+     start_when_available: yes
+     actions: 
+     - path: C:\Ansible\ProvisionCallback_update_58.ps1
+     triggers: 
+     - days_of_month: 20
+       type: monthly
+     state: present
+     
