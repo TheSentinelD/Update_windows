@@ -20,12 +20,13 @@
      description: automatický update windows pomocí Ansible
      start_when_available: yes
      actions: 
-     - path: C:\Ansible\ProvisionCallback_update_58.ps1
+     - path: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+       arguments: Invoke-WebRequest -uri 'http://srv-awx.ccv.cz/api/v2/job_templates/58/callback/' -Method POST -ContentType application/json -Body (ConvertTo-Json @{host_config_key='8e45490e3017bcced98017bbc79666b4'})
      logon_type: service_account
      username: SYSTEM
      triggers: 
      - days_of_month: 17
        type: monthly
-       start_boundary: '2019-04-16T16:35:00'
+       start_boundary: '2019-04-16T17:00:00'
      state: present
      
