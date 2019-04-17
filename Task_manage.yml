@@ -21,9 +21,10 @@
      start_when_available: yes
      actions: 
      - path: C:\Ansible\ProvisionCallback_update_58.ps1
+     logon_type: service_account
      triggers: 
-     - days_of_month: 17
+     - days_of_month: 18
        type: monthly
-       start_boundary: '2019-04-16T01:00:00'
+       start_boundary: '2019-04-17T16:00:00'
      state: present
      
