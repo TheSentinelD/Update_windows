@@ -2,17 +2,17 @@
 - name: Nastavení task scheduleru pro automatickou aktualizaci Windows
   hosts: "{{ seznam_stanic }}"
   tasks: 
-  - name: Kopírování PS skriptu pro update do počítače
-    win_copy: 
-     src: "{{ zdroj }}"
-     dest: "{{ cil }}"
-     remote_src: yes
-    vars: 
-     ansible_become: yes
-     ansible_become_method: runas
-     ansible_become_user: "{{ superucet }}"
-     ansible_become_pass: "{{ superheslo }}"
-     ansible_become_flags: logon_type=new_credentials logon_flags=netcredentials_only
+#  - name: Kopírování PS skriptu pro update do počítače
+#    win_copy: 
+#     src: "{{ zdroj }}"
+#     dest: "{{ cil }}"
+#     remote_src: yes
+#    vars: 
+#     ansible_become: yes
+#     ansible_become_method: runas
+#     ansible_become_user: "{{ superucet }}"
+#     ansible_become_pass: "{{ superheslo }}"
+#     ansible_become_flags: logon_type=new_credentials logon_flags=netcredentials_only
   
   - name: Založení tasku v task scheduleru
     win_scheduled_task: 
@@ -21,7 +21,7 @@
      start_when_available: yes
      actions: 
      - path: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
-       arguments: Invoke-WebRequest -uri 'http://srv-awx.ccv.cz/api/v2/job_templates/58/callback/' -Method POST -ContentType application/json -Body (ConvertTo-Json @{host_config_key='8e45490e3017bcced98017bbc79666b4'})
+       arguments: "{{ ukol }}"
      logon_type: service_account
      username: SYSTEM
      triggers: 
