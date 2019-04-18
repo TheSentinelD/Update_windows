@@ -25,8 +25,8 @@
      logon_type: service_account
      username: SYSTEM
      triggers: 
-     - days_of_month: 20
+     - days_of_month: 18
        type: monthly
-       start_boundary: '2019-04-16T13:00:00'
+       start_boundary: '2019-04-16T14:30:00'
      state: present
      
