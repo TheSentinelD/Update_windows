@@ -27,6 +27,6 @@
      triggers: 
      - days_of_month: 18
        type: monthly
-       start_boundary: '2019-04-16T14:30:00'
+       start_boundary: '2019-04-16T15:00:00'
      state: present
      
