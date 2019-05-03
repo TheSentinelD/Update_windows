@@ -11,4 +11,4 @@
        reboot: no
    
    - name: Opětovný zákaz updatu
-     win_command: sc config wuauserv start= disable
+     win_command: sc config wuauserv start= disabled
