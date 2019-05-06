@@ -2,8 +2,11 @@
 - name: Updaty počítače
   hosts: "{{ seznam_stanic }}"
   tasks: 
-   - name: Povolení updatu
+   - name: Povolení služby updatu
      win_command: sc config wuauserv start= auto
+     
+   - name: Povolení updatu
+     win_command: sc start wuauserv
         
    - name: Updatuje počítač
      win_updates: 
