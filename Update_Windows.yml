@@ -9,6 +9,9 @@
      win_updates: 
        #category_names: "{{ kategorie_updatu }}"
        reboot: no
+       
+   - name: Opětovný zákaz updatu
+     win_command: sc stop wuauserv
    
    - name: Opětovný zákaz updatu
      win_command: sc config wuauserv start= disabled
