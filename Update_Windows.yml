@@ -4,17 +4,21 @@
   tasks: 
    - name: Povolení služby updatu
      win_command: sc config wuauserv start= auto
+     ignore_errors: yes
      
    - name: Povolení updatu
      win_command: sc start wuauserv
+     ignore_errors: yes
         
    - name: Updatuje počítač
      win_updates: 
        #category_names: "{{ kategorie_updatu }}"
        reboot: no
+     ignore_errors: yes
        
    - name: Opětovný zákaz updatu
      win_command: sc stop wuauserv
+     ignore_errors: yes
    
    - name: Opětovný zákaz updatu
      win_command: sc config wuauserv start= disabled
