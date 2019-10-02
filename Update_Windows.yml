@@ -12,7 +12,7 @@
         
    - name: Updatuje počítač
      win_updates: 
-       category_names: all
+       category_names: [Application,Connectors,CriticalUpdates,DefinitionUpdates,DeveloperKits,FeaturePacks,Guidance,SecurityUpdates,ServicePacks,Tools,UpdateRollups,Updates]
        reboot: no
        state: installed
      ignore_errors: yes
