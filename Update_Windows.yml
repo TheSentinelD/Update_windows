@@ -14,6 +14,7 @@
      win_updates: 
        #category_names: "{{ kategorie_updatu }}"
        reboot: no
+       state: searched
      ignore_errors: yes
        
  #  - name: Opětovný zákaz updatu
