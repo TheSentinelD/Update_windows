@@ -16,9 +16,9 @@
        reboot: no
      ignore_errors: yes
        
-   - name: Opětovný zákaz updatu
-     win_command: sc stop wuauserv
-     ignore_errors: yes
+ #  - name: Opětovný zákaz updatu
+ #    win_command: sc stop wuauserv
+ #    ignore_errors: yes
    
-   - name: Opětovný zákaz updatu
-     win_command: sc config wuauserv start= disabled
+ #  - name: Opětovný zákaz updatu
+ #    win_command: sc config wuauserv start= disabled
